@@ -1,23 +1,122 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://plaque_texture_01.png" type="Texture" id=1]
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://conveyor/Conveyor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://light/LightMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/Player.gd" type="Script" id=4]
+[ext_resource path="res://waste/assets/plaque_texture_05.png" type="Texture" id=5]
+[ext_resource path="res://laser/assets/laser_0.png" type="Texture" id=6]
+[ext_resource path="res://laser/assets/laser_1.png" type="Texture" id=7]
+[ext_resource path="res://laser/assets/laser_2.png" type="Texture" id=8]
+[ext_resource path="res://laser/assets/laser_3.png" type="Texture" id=9]
+[ext_resource path="res://laser/assets/laser_4.png" type="Texture" id=10]
+[ext_resource path="res://laser/assets/laser_5.png" type="Texture" id=11]
+[ext_resource path="res://laser/assets/laser_6.png" type="Texture" id=12]
+[ext_resource path="res://assets/lampe_01.png" type="Texture" id=13]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="Animation" id=8]
 
-custom_solver_bias = 0.0
-extents = Vector2( 512, 16 )
+resource_name = "flash"
+length = 0.1
+loop = false
+step = 0.01
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
+extents = Vector2( 640, 16 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 192 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 32 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="Main" type="Node2D" index="0"]
+[sub_resource type="SpriteFrames" id=5]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 30.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 56, 8 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 100.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 10.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 2.0
+scale_random = 0.0
+color = Color( 0.133333, 0.12549, 0.203922, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angular Velocity", "Color", "Damping", "Emission Shape", "Orbit Velocity", "Scale" ]
+
+[node name="Main" type="Node2D"]
+
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/flash = SubResource( 8 )
+blend_times = [  ]
+
+[node name="Garbage" type="Node2D" parent="." index="1"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Ground" type="StaticBody2D" parent="." index="2"]
 
 editor/display_folded = true
-position = Vector2( 32, 576 )
+position = Vector2( 32, 688 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -26,12 +125,12 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D" index="0"]
+[node name="Polygon2D" type="Polygon2D" parent="Ground" index="0"]
 
 position = Vector2( -32, 0 )
-polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 32, 0, 32 )
+polygon = PoolVector2Array( 0, 0, 1280, 0, 1280, 32, 0, 32 )
 uv = PoolVector2Array(  )
-color = Color( 1, 1, 1, 1 )
+color = Color( 0.133333, 0.12549, 0.203922, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
@@ -42,74 +141,56 @@ texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+[node name="GroundCollision" type="CollisionShape2D" parent="Ground" index="1"]
 
-position = Vector2( 480, 16 )
+position = Vector2( 608, 16 )
+shape = SubResource( 1 )
+
+[node name="WallRightCollision" type="CollisionShape2D" parent="Ground" index="2"]
+
+position = Vector2( 1264, -160 )
 shape = SubResource( 2 )
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." index="1"]
+[node name="WallLeftCollision" type="CollisionShape2D" parent="Ground" index="3"]
 
-position = Vector2( 272, 176 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( -100, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2" index="0"]
-
-position = Vector2( -32, 0 )
-polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 32, 0, 32 )
-uv = PoolVector2Array(  )
-color = Color( 1, 1, 1, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" index="1"]
-
-position = Vector2( 480, 16 )
+position = Vector2( -48, -160 )
 shape = SubResource( 2 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." index="2"]
+[node name="Conveyor" parent="." index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 944, 64 )
+position = Vector2( 304, 272 )
+
+[node name="Shadow" parent="." index="4" instance=ExtResource( 3 )]
+
+visible = false
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Transform" ]
+
+[node name="Player" type="KinematicBody2D" parent="." index="5"]
+
+editor/display_folded = true
+position = Vector2( 368, 656 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
-mode = 0
-mass = 0.1
-friction = 1.0
-bounce = 0.2
-gravity_scale = 5.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-__meta__ = {
-"_edit_group_": true
-}
+collision/safe_margin = 0.08
+script = ExtResource( 4 )
+_sections_unfolded = [ "Collision" ]
 
-[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D" index="0"]
+[node name="Collision" type="CollisionShape2D" parent="Player" index="0"]
 
-position = Vector2( -16, -16 )
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Pivot" type="Position2D" parent="Player" index="1"]
+
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Polygon2D" type="Polygon2D" parent="Player/Pivot" index="0"]
+
+position = Vector2( 16, 0 )
+polygon = PoolVector2Array( -32, 32, -32, -48, 0, -48, 0, 32 )
 uv = PoolVector2Array(  )
-color = Color( 1, 1, 1, 1 )
+color = Color( 0.133333, 0.12549, 0.203922, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
@@ -120,159 +201,124 @@ texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
 
-[node name="Sprite" type="Sprite" parent="RigidBody2D" index="1"]
+[node name="Hand" type="Sprite" parent="Player/Pivot" index="1"]
 
-texture = ExtResource( 1 )
+position = Vector2( 16, -16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" index="2"]
+[node name="Detector" type="Area2D" parent="Player" index="2"]
 
-shape = SubResource( 1 )
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="." index="3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Detector" index="0"]
 
-position = Vector2( 1040, 64 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 0.1
-friction = 1.0
-bounce = 0.2
-gravity_scale = 5.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-__meta__ = {
-"_edit_group_": true
-}
+shape = SubResource( 7 )
 
-[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D2" index="0"]
+[node name="SpawnTimer" type="Timer" parent="." index="6"]
 
-position = Vector2( -16, -16 )
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32, 0, 0 )
-uv = PoolVector2Array(  )
-color = Color( 1, 1, 1, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = true
+
+[node name="Laser" type="AnimatedSprite" parent="." index="7"]
+
+position = Vector2( 128, 384 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 5 )
+animation = "default"
+frame = 8
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="Laser" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/Area2D" index="0"]
+
+position = Vector2( 0, 16 )
+shape = SubResource( 6 )
+
+[node name="Particles2D" type="Particles2D" parent="." index="8"]
+
+position = Vector2( 128, 384 )
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 9 )
 texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Time" ]
 
-[node name="Sprite" type="Sprite" parent="RigidBody2D2" index="1"]
+[node name="Lamps" type="Node2D" parent="." index="9"]
 
-texture = ExtResource( 1 )
+editor/display_folded = true
+position = Vector2( 1104, 80 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" index="2"]
+[node name="lamp" type="Sprite" parent="Lamps" index="0"]
 
-shape = SubResource( 1 )
+position = Vector2( 48, -16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="RigidBody2D3" type="RigidBody2D" parent="." index="4"]
+[node name="lamp2" type="Sprite" parent="Lamps" index="1"]
 
-position = Vector2( 1136, 64 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 0.1
-friction = 1.0
-bounce = 0.2
-gravity_scale = 5.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( -176, -16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D3" index="0"]
+[node name="lamp3" type="Sprite" parent="Lamps" index="2"]
 
-position = Vector2( -16, -16 )
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32, 0, 0 )
-uv = PoolVector2Array(  )
-color = Color( 1, 1, 1, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
+position = Vector2( -384, -16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="RigidBody2D3" index="1"]
+[node name="lamp4" type="Sprite" parent="Lamps" index="3"]
 
-texture = ExtResource( 1 )
+position = Vector2( -608, -16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3" index="2"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 
-shape = SubResource( 1 )
-
-[node name="RigidBody2D4" type="RigidBody2D" parent="." index="5"]
-
-position = Vector2( 1232, 64 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 0.1
-friction = 1.0
-bounce = 0.2
-gravity_scale = 5.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D4" index="0"]
-
-position = Vector2( -16, -16 )
-polygon = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32, 0, 0 )
-uv = PoolVector2Array(  )
-color = Color( 1, 1, 1, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
-
-[node name="Sprite" type="Sprite" parent="RigidBody2D4" index="1"]
-
-texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4" index="2"]
-
-shape = SubResource( 1 )
+[connection signal="body_entered" from="Laser/Area2D" to="." method="_on_Area2D_body_entered"]
 
 

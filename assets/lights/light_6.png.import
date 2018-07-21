@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/coveyor1.png-926a19e1aa0f06891c1cb9bb04757571.stex"
+path="res://.import/light_6.png-c35b0d722a4f7e55b85b4110b40b05ed.stex"
 
 [deps]
 
-source_file="res://coveyor1.png"
-dest_files=[ "res://.import/coveyor1.png-926a19e1aa0f06891c1cb9bb04757571.stex" ]
+source_file="res://assets/lights/light_6.png"
+dest_files=[ "res://.import/light_6.png-c35b0d722a4f7e55b85b4110b40b05ed.stex" ]
 
 [params]
 

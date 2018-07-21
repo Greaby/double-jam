@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/coveyor3.png-73027505973737a6326c140b9e266d01.stex"
+path="res://.import/plaque_texture_02.png-48a10eca678ee6572fd34a9d097ceec5.stex"
 
 [deps]
 
-source_file="res://coveyor3.png"
-dest_files=[ "res://.import/coveyor3.png-73027505973737a6326c140b9e266d01.stex" ]
+source_file="res://waste/assets/plaque_texture_02.png"
+dest_files=[ "res://.import/plaque_texture_02.png-48a10eca678ee6572fd34a9d097ceec5.stex" ]
 
 [params]
 

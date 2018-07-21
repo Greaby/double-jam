@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/plaque_texture_01.png-adbb9d5170df0cfc3e1a16f7aa524894.stex"
+path="res://.import/laser_5.png-885d42086741bce05834f3e3c4394dbf.stex"
 
 [deps]
 
-source_file="res://plaque_texture_01.png"
-dest_files=[ "res://.import/plaque_texture_01.png-adbb9d5170df0cfc3e1a16f7aa524894.stex" ]
+source_file="res://laser/assets/laser_5.png"
+dest_files=[ "res://.import/laser_5.png-885d42086741bce05834f3e3c4394dbf.stex" ]
 
 [params]
 

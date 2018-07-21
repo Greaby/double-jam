@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/coveyor4.png-332bba6f1026e67812a3785a0de7e1cc.stex"
+path="res://.import/borne_0.png-726d6cc79c172486b424759900ad77ab.stex"
 
 [deps]
 
-source_file="res://coveyor4.png"
-dest_files=[ "res://.import/coveyor4.png-332bba6f1026e67812a3785a0de7e1cc.stex" ]
+source_file="res://borne/assets/borne_0.png"
+dest_files=[ "res://.import/borne_0.png-726d6cc79c172486b424759900ad77ab.stex" ]
 
 [params]
 
