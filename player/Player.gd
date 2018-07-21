@@ -16,6 +16,7 @@ func _ready():
 func _physics_process(delta):
     
     if Input.is_action_just_pressed("grab"):
+        toggle_borne()
         if not has_object:
             take_object()
         else:
@@ -50,3 +51,12 @@ func drop_object():
 
     get_node("../Garbage").add_child(instance)
     instance.position = position
+    
+func toggle_borne():
+    var area = $Detector.get_overlapping_areas().pop_front()
+    if area:
+        area.toggle()
+
+
+func _on_Detector_area_entered(area):
+    pass

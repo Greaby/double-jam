@@ -1,18 +1,19 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://conveyor/Conveyor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://light/LightMap.tscn" type="PackedScene" id=3]
-[ext_resource path="res://player/Player.gd" type="Script" id=4]
-[ext_resource path="res://waste/assets/plaque_texture_05.png" type="Texture" id=5]
-[ext_resource path="res://laser/assets/laser_0.png" type="Texture" id=6]
-[ext_resource path="res://laser/assets/laser_1.png" type="Texture" id=7]
-[ext_resource path="res://laser/assets/laser_2.png" type="Texture" id=8]
-[ext_resource path="res://laser/assets/laser_3.png" type="Texture" id=9]
-[ext_resource path="res://laser/assets/laser_4.png" type="Texture" id=10]
-[ext_resource path="res://laser/assets/laser_5.png" type="Texture" id=11]
-[ext_resource path="res://laser/assets/laser_6.png" type="Texture" id=12]
-[ext_resource path="res://assets/lampe_01.png" type="Texture" id=13]
+[ext_resource path="res://laser/assets/laser_0.png" type="Texture" id=4]
+[ext_resource path="res://laser/assets/laser_1.png" type="Texture" id=5]
+[ext_resource path="res://laser/assets/laser_2.png" type="Texture" id=6]
+[ext_resource path="res://laser/assets/laser_3.png" type="Texture" id=7]
+[ext_resource path="res://laser/assets/laser_4.png" type="Texture" id=8]
+[ext_resource path="res://laser/assets/laser_5.png" type="Texture" id=9]
+[ext_resource path="res://laser/assets/laser_6.png" type="Texture" id=10]
+[ext_resource path="res://assets/lampe_01.png" type="Texture" id=11]
+[ext_resource path="res://borne/Borne.tscn" type="PackedScene" id=12]
+[ext_resource path="res://player/Player.gd" type="Script" id=13]
+[ext_resource path="res://waste/assets/plaque_texture_05.png" type="Texture" id=14]
 
 [sub_resource type="Animation" id=8]
 
@@ -31,20 +32,10 @@ extents = Vector2( 640, 16 )
 custom_solver_bias = 0.0
 extents = Vector2( 16, 192 )
 
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 16, 32 )
-
-[sub_resource type="RectangleShape2D" id=7]
-
-custom_solver_bias = 0.0
-extents = Vector2( 32, 32 )
-
 [sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 30.0
@@ -94,6 +85,16 @@ anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Damping", "Emission Shape", "Orbit Velocity", "Scale" ]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 32 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
 
 [node name="Main" type="Node2D"]
 
@@ -166,7 +167,108 @@ visible = false
 tile_data = PoolIntArray(  )
 _sections_unfolded = [ "Cell", "Transform" ]
 
-[node name="Player" type="KinematicBody2D" parent="." index="5"]
+[node name="SpawnTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = true
+
+[node name="Laser" type="AnimatedSprite" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( 128, 384 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 5 )
+animation = "default"
+frame = 9
+playing = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D" type="Area2D" parent="Laser" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/Area2D" index="0"]
+
+position = Vector2( 0, 16 )
+shape = SubResource( 6 )
+
+[node name="Particles2D" type="Particles2D" parent="." index="7"]
+
+position = Vector2( 128, 384 )
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 9 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Time" ]
+
+[node name="Lamps" type="Node2D" parent="." index="8"]
+
+editor/display_folded = true
+position = Vector2( 1104, 80 )
+
+[node name="lamp" type="Sprite" parent="Lamps" index="0"]
+
+position = Vector2( 48, -16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="lamp2" type="Sprite" parent="Lamps" index="1"]
+
+position = Vector2( -176, -16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="lamp3" type="Sprite" parent="Lamps" index="2"]
+
+position = Vector2( -384, -16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="lamp4" type="Sprite" parent="Lamps" index="3"]
+
+position = Vector2( -608, -16 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Bornes" type="Node2D" parent="." index="9"]
+
+position = Vector2( 368, 656 )
+
+[node name="Borne" parent="Bornes" index="0" instance=ExtResource( 12 )]
+
+position = Vector2( 96, -32 )
+type = null
+
+[node name="Player" type="KinematicBody2D" parent="." index="10"]
 
 editor/display_folded = true
 position = Vector2( 368, 656 )
@@ -174,7 +276,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 4 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="Collision" type="CollisionShape2D" parent="Player" index="0"]
@@ -205,19 +307,18 @@ invert_border = 100.0
 
 position = Vector2( 16, -16 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Detector" type="Area2D" parent="Player" index="2"]
 
-editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 collision_layer = 0
-collision_mask = 4
+collision_mask = 20
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
@@ -226,99 +327,10 @@ _sections_unfolded = [ "Collision" ]
 
 shape = SubResource( 7 )
 
-[node name="SpawnTimer" type="Timer" parent="." index="6"]
-
-process_mode = 1
-wait_time = 0.2
-one_shot = false
-autostart = true
-
-[node name="Laser" type="AnimatedSprite" parent="." index="7"]
-
-position = Vector2( 128, 384 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 5 )
-animation = "default"
-frame = 8
-playing = true
-_sections_unfolded = [ "Transform" ]
-
-[node name="Area2D" type="Area2D" parent="Laser" index="0"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 8
-collision_mask = 2
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/Area2D" index="0"]
-
-position = Vector2( 0, 16 )
-shape = SubResource( 6 )
-
-[node name="Particles2D" type="Particles2D" parent="." index="8"]
-
-position = Vector2( 128, 384 )
-emitting = true
-amount = 8
-lifetime = 1.0
-one_shot = false
-preprocess = 0.0
-speed_scale = 1.0
-explosiveness = 0.0
-randomness = 0.0
-fixed_fps = 0
-fract_delta = true
-visibility_rect = Rect2( -100, -100, 200, 200 )
-local_coords = true
-draw_order = 0
-process_material = SubResource( 9 )
-texture = null
-normal_map = null
-h_frames = 1
-v_frames = 1
-_sections_unfolded = [ "Process Material", "Time" ]
-
-[node name="Lamps" type="Node2D" parent="." index="9"]
-
-editor/display_folded = true
-position = Vector2( 1104, 80 )
-
-[node name="lamp" type="Sprite" parent="Lamps" index="0"]
-
-position = Vector2( 48, -16 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 13 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="lamp2" type="Sprite" parent="Lamps" index="1"]
-
-position = Vector2( -176, -16 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 13 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="lamp3" type="Sprite" parent="Lamps" index="2"]
-
-position = Vector2( -384, -16 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 13 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="lamp4" type="Sprite" parent="Lamps" index="3"]
-
-position = Vector2( -608, -16 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 13 )
-_sections_unfolded = [ "Transform" ]
-
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 
 [connection signal="body_entered" from="Laser/Area2D" to="." method="_on_Area2D_body_entered"]
+
+[connection signal="area_entered" from="Player/Detector" to="Player" method="_on_Detector_area_entered"]
 
 
