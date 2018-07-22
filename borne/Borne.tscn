@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://borne/Borne.gd" type="Script" id=1]
 [ext_resource path="res://borne/assets/square/borne_carre_7.png" type="Texture" id=2]
@@ -24,7 +24,8 @@
 [ext_resource path="res://borne/assets/triangle/borne_triangle_8.png" type="Texture" id=22]
 [ext_resource path="res://borne/assets/triangle/borne_triangle_9.png" type="Texture" id=23]
 [ext_resource path="res://borne/assets/triangle/borne_triangle_10.png" type="Texture" id=24]
-[ext_resource path="res://borne/Detector.gd" type="Script" id=25]
+[ext_resource path="res://borne/assets/click.ogg" type="AudioStream" id=25]
+[ext_resource path="res://borne/Detector.gd" type="Script" id=26]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -65,7 +66,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 26, 48 )
 
-[node name="Borne" type="Node2D"]
+[node name="Borne" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 type = null
@@ -78,7 +79,16 @@ frame = 6
 playing = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Detector" type="Area2D" parent="." index="1"]
+[node name="Activate" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 25 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Detector" type="Area2D" parent="." index="2"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -88,7 +98,7 @@ angular_damp = 1.0
 collision_layer = 16
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 25 )
+script = ExtResource( 26 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector" index="0"]

@@ -3,6 +3,8 @@ extends Node2D
 
 var laser = null
 
+var sas_open = false
+
 enum TYPES {CIRCLE, TRIANGLE, SQUARE, HEXAGON}
 
 const objects = [
@@ -73,3 +75,25 @@ func _on_Borne_turn_off(type):
     
     if type == laser:
         laser = null
+
+
+func _on_SasButton_toggle():
+    $SasButton/AnimatedSprite.play("on")
+    $SasButton/AnimatedSprite.frame = 0
+    if sas_open:
+        $AnimationPlayer.play("close_sas")
+    else:
+        $AnimationPlayer.play("open_sas")
+        
+    sas_open = !sas_open
+
+
+func _on_Trash_body_entered(body):
+    if(body == $Player):
+        print("player")
+    
+    body.queue_free()
+
+
+func _on_Receptacle_body_entered(body):
+    body.queue_free()

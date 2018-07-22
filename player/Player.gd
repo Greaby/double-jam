@@ -40,7 +40,6 @@ func _input(event):
     
 func _physics_process(delta):
     if Input.is_action_just_pressed("grab"):
-        toggle_borne()
         if not has_object:
             take_object()
         else:
@@ -93,6 +92,8 @@ func take_object():
         has_object = true
         $Pivot/Hand.texture = load("res://waste/assets/plaque_texture_05.png")
         body.queue_free()
+    else:
+        toggle_borne()
 
 func drop_object():
     has_object = false

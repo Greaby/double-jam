@@ -10,6 +10,8 @@ export (TYPES) var type
 var is_on = false
 
 func toggle():
+    $Activate.pitch_scale = randf() / 2.5 + 0.8
+    $Activate.play()
     if is_on:
         turn_off()
     else:
