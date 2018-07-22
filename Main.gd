@@ -1,5 +1,7 @@
 extends Node2D
 
+signal game_over
+
 var score = 0
 var energy = 50
 
@@ -20,7 +22,9 @@ func _ready():
     randomize()
     
 func _process(delta):
-    if(energy <= 10):
+    if(energy <= 0):
+        emit_signal("game_over", score)
+    elif(energy <= 10):
         $Light.position.x = 816
     elif(energy <= 20):
         $Light.position.x = 1056
@@ -105,7 +109,7 @@ func _on_SasButton_toggle():
 
 func _on_Trash_body_entered(body):
     if(body == $Player):
-        print("player")
+        emit_signal("game_over", score)
     
     body.queue_free()
 
