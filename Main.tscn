@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://conveyor/Conveyor.tscn" type="PackedScene" id=2]
@@ -18,8 +18,21 @@
 [ext_resource path="res://assets/interface_cables_on_3.png" type="Texture" id=16]
 [ext_resource path="res://borne/Borne.tscn" type="PackedScene" id=17]
 [ext_resource path="res://player/Player.gd" type="Script" id=18]
-[ext_resource path="res://waste/assets/plaque_texture_05.png" type="Texture" id=19]
-[ext_resource path="res://assets/receptacle.png" type="Texture" id=20]
+[ext_resource path="res://player/assets/human-idle1.png" type="Texture" id=19]
+[ext_resource path="res://player/assets/human-idle2.png" type="Texture" id=20]
+[ext_resource path="res://player/assets/human-walk1.png" type="Texture" id=21]
+[ext_resource path="res://player/assets/human-walk2.png" type="Texture" id=22]
+[ext_resource path="res://player/assets/human-walk3.png" type="Texture" id=23]
+[ext_resource path="res://player/assets/human-walk4.png" type="Texture" id=24]
+[ext_resource path="res://player/assets/human-walk5.png" type="Texture" id=25]
+[ext_resource path="res://player/assets/human-walk6.png" type="Texture" id=26]
+[ext_resource path="res://player/assets/human-walk7.png" type="Texture" id=27]
+[ext_resource path="res://player/assets/human-walk8.png" type="Texture" id=28]
+[ext_resource path="res://player/assets/human-jump1.png" type="Texture" id=29]
+[ext_resource path="res://player/assets/human-jump2.png" type="Texture" id=30]
+[ext_resource path="res://player/assets/human-jump3.png" type="Texture" id=31]
+[ext_resource path="res://waste/assets/plaque_texture_05.png" type="Texture" id=32]
+[ext_resource path="res://assets/receptacle.png" type="Texture" id=33]
 
 [sub_resource type="Animation" id=1]
 
@@ -95,14 +108,112 @@ _sections_unfolded = [ "Angular Velocity", "Color", "Damping", "Emission Shape",
 [sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
-extents = Vector2( 16, 32 )
+extents = Vector2( 16, 36 )
+
+[sub_resource type="SpriteFrames" id=11]
+
+animations = [ {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "idle",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "walk",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": false,
+"name": "jump",
+"speed": 16.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
 extents = Vector2( 24, 40 )
 
-[node name="Main" type="Node2D"]
+[sub_resource type="ParticlesMaterial" id=9]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 0.133333, 0.12549, 0.203922, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Gravity" ]
+
+[sub_resource type="ParticlesMaterial" id=10]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 5, 3, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -30, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 1.0
+scale = 2.0
+scale_random = 0.0
+color = Color( 0.133333, 0.12549, 0.203922, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle" ]
+
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -122,7 +233,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Ground" type="StaticBody2D" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 32, 688 )
 input_pickable = false
 collision_layer = 1
@@ -192,12 +302,11 @@ autostart = true
 
 [node name="Laser" type="AnimatedSprite" parent="." index="6"]
 
-editor/display_folded = true
 position = Vector2( 128, 384 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -219,9 +328,9 @@ _sections_unfolded = [ "Collision" ]
 position = Vector2( 0, 16 )
 shape = SubResource( 5 )
 
-[node name="Particles2D" type="Particles2D" parent="." index="7"]
+[node name="Particles2D" type="Particles2D" parent="Laser" index="1"]
 
-position = Vector2( 128, 384 )
+scale = Vector2( 0.5, 0.5 )
 emitting = true
 amount = 8
 lifetime = 1.0
@@ -242,7 +351,7 @@ h_frames = 1
 v_frames = 1
 _sections_unfolded = [ "Process Material", "Time" ]
 
-[node name="Lamps" type="Node2D" parent="." index="8"]
+[node name="Lamps" type="Node2D" parent="." index="7"]
 
 editor/display_folded = true
 position = Vector2( 1104, 80 )
@@ -275,7 +384,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Cables" type="Sprite" parent="." index="9"]
+[node name="Cables" type="Sprite" parent="." index="8"]
 
 editor/display_folded = true
 position = Vector2( 581, 367 )
@@ -301,7 +410,7 @@ texture = ExtResource( 15 )
 visible = false
 texture = ExtResource( 16 )
 
-[node name="Bornes" type="Node2D" parent="." index="10"]
+[node name="Bornes" type="Node2D" parent="." index="9"]
 
 editor/display_folded = true
 position = Vector2( 368, 656 )
@@ -326,9 +435,8 @@ type = 1
 position = Vector2( 388, -32 )
 type = 3
 
-[node name="Player" type="KinematicBody2D" parent="." index="11"]
+[node name="Player" type="KinematicBody2D" parent="." index="10"]
 
-editor/display_folded = true
 position = Vector2( 944, 656 )
 input_pickable = false
 collision_layer = 1
@@ -336,12 +444,11 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 18 )
 _sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_group_": true
-}
+gravity = 20
 
 [node name="Collision" type="CollisionShape2D" parent="Player" index="0"]
 
+position = Vector2( 0, -4 )
 shape = SubResource( 7 )
 
 [node name="Pivot" type="Position2D" parent="Player" index="1"]
@@ -350,6 +457,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Polygon2D" type="Polygon2D" parent="Player/Pivot" index="0"]
 
+visible = false
 position = Vector2( 16, 0 )
 polygon = PoolVector2Array( -32, 32, -32, -48, 0, -48, 0, 32 )
 uv = PoolVector2Array(  )
@@ -364,11 +472,18 @@ texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
 
-[node name="Hand" type="Sprite" parent="Player/Pivot" index="1"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player/Pivot" index="1"]
+
+position = Vector2( 0, -6 )
+frames = SubResource( 11 )
+animation = "idle"
+playing = true
+
+[node name="Hand" type="Sprite" parent="Player/Pivot" index="2"]
 
 position = Vector2( 16, -16 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 19 )
+texture = ExtResource( 32 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Detector" type="Area2D" parent="Player" index="2"]
@@ -386,13 +501,59 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Detector" index="0"]
 
-position = Vector2( 0, -8 )
+position = Vector2( 0, -4 )
 shape = SubResource( 8 )
 
-[node name="receptacle" type="Sprite" parent="." index="12"]
+[node name="Receptacle" type="Sprite" parent="." index="11"]
 
 position = Vector2( 1152, 624 )
-texture = ExtResource( 20 )
+texture = ExtResource( 33 )
+
+[node name="Particles2D" type="Particles2D" parent="Receptacle" index="0"]
+
+position = Vector2( 79, -38 )
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 9 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material" ]
+
+[node name="Particles2D2" type="Particles2D" parent="Receptacle" index="1"]
+
+position = Vector2( 28, -30 )
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 10 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Material", "Process Material" ]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 
