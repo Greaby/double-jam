@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/borne_carre_9.png-ed35b116ff6f5a74830568fa7f491a44.stex"
+path="res://.import/borne_3.png-d6ac57aac7a8c1d03515ca39dfbfcbc2.stex"
 
 [deps]
 
-source_file="res://borne/assets/borne_carre_9.png"
-dest_files=[ "res://.import/borne_carre_9.png-ed35b116ff6f5a74830568fa7f491a44.stex" ]
+source_file="res://borne/assets/on_off/borne_3.png"
+dest_files=[ "res://.import/borne_3.png-d6ac57aac7a8c1d03515ca39dfbfcbc2.stex" ]
 
 [params]
 

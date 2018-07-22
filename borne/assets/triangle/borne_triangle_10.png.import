@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/borne_0.png-726d6cc79c172486b424759900ad77ab.stex"
+path="res://.import/borne_triangle_10.png-929153586e7ec2db9f91c30719dbdfd3.stex"
 
 [deps]
 
-source_file="res://borne/assets/borne_0.png"
-dest_files=[ "res://.import/borne_0.png-726d6cc79c172486b424759900ad77ab.stex" ]
+source_file="res://borne/assets/triangle/borne_triangle_10.png"
+dest_files=[ "res://.import/borne_triangle_10.png-929153586e7ec2db9f91c30719dbdfd3.stex" ]
 
 [params]
 
