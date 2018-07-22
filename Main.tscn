@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://assets/background.ogg" type="AudioStream" id=2]
@@ -8,43 +8,48 @@
 [ext_resource path="res://sas/assets/bouton_secours_2.png" type="Texture" id=6]
 [ext_resource path="res://sas/assets/bouton_secours_1.png" type="Texture" id=7]
 [ext_resource path="res://sas/SasButton.gd" type="Script" id=8]
-[ext_resource path="res://light/LightMap.tscn" type="PackedScene" id=9]
-[ext_resource path="res://laser/assets/laser_0.png" type="Texture" id=10]
-[ext_resource path="res://laser/assets/laser_1.png" type="Texture" id=11]
-[ext_resource path="res://laser/assets/laser_2.png" type="Texture" id=12]
-[ext_resource path="res://laser/assets/laser_3.png" type="Texture" id=13]
-[ext_resource path="res://laser/assets/laser_4.png" type="Texture" id=14]
-[ext_resource path="res://laser/assets/laser_5.png" type="Texture" id=15]
-[ext_resource path="res://laser/assets/laser_6.png" type="Texture" id=16]
-[ext_resource path="res://assets/lampe_01.png" type="Texture" id=17]
-[ext_resource path="res://assets/interface_cables.png" type="Texture" id=18]
-[ext_resource path="res://assets/interface_cables_on_0.png" type="Texture" id=19]
-[ext_resource path="res://assets/interface_cables_on_1.png" type="Texture" id=20]
-[ext_resource path="res://assets/interface_cables_on_2.png" type="Texture" id=21]
-[ext_resource path="res://assets/interface_cables_on_3.png" type="Texture" id=22]
-[ext_resource path="res://borne/Borne.tscn" type="PackedScene" id=23]
-[ext_resource path="res://conveyor/Conveyor.tscn" type="PackedScene" id=24]
-[ext_resource path="res://sas/assets/trappe_gauche_0.png" type="Texture" id=25]
-[ext_resource path="res://sas/assets/trappe_droite_0.png" type="Texture" id=26]
-[ext_resource path="res://sas/assets/trappe_socle.png" type="Texture" id=27]
-[ext_resource path="res://sas/assets/wwind.ogg" type="AudioStream" id=28]
-[ext_resource path="res://assets/emergency_alarm.ogg" type="AudioStream" id=29]
-[ext_resource path="res://player/Player.gd" type="Script" id=30]
-[ext_resource path="res://player/assets/human-idle1.png" type="Texture" id=31]
-[ext_resource path="res://player/assets/human-idle2.png" type="Texture" id=32]
-[ext_resource path="res://player/assets/human-jump1.png" type="Texture" id=33]
-[ext_resource path="res://player/assets/human-jump2.png" type="Texture" id=34]
-[ext_resource path="res://player/assets/human-jump3.png" type="Texture" id=35]
-[ext_resource path="res://player/assets/human-walk1.png" type="Texture" id=36]
-[ext_resource path="res://player/assets/human-walk2.png" type="Texture" id=37]
-[ext_resource path="res://player/assets/human-walk3.png" type="Texture" id=38]
-[ext_resource path="res://player/assets/human-walk4.png" type="Texture" id=39]
-[ext_resource path="res://player/assets/human-walk5.png" type="Texture" id=40]
-[ext_resource path="res://player/assets/human-walk6.png" type="Texture" id=41]
-[ext_resource path="res://player/assets/human-walk7.png" type="Texture" id=42]
-[ext_resource path="res://player/assets/human-walk8.png" type="Texture" id=43]
-[ext_resource path="res://waste/assets/plaque_texture_05.png" type="Texture" id=44]
-[ext_resource path="res://assets/receptacle.png" type="Texture" id=45]
+[ext_resource path="res://assets/sol_01.png" type="Texture" id=9]
+[ext_resource path="res://light/LightMap.tscn" type="PackedScene" id=10]
+[ext_resource path="res://laser/assets/laser_0.png" type="Texture" id=11]
+[ext_resource path="res://laser/assets/laser_1.png" type="Texture" id=12]
+[ext_resource path="res://laser/assets/laser_2.png" type="Texture" id=13]
+[ext_resource path="res://laser/assets/laser_3.png" type="Texture" id=14]
+[ext_resource path="res://laser/assets/laser_4.png" type="Texture" id=15]
+[ext_resource path="res://laser/assets/laser_5.png" type="Texture" id=16]
+[ext_resource path="res://laser/assets/laser_6.png" type="Texture" id=17]
+[ext_resource path="res://assets/lampe_01.png" type="Texture" id=18]
+[ext_resource path="res://assets/interface_cables.png" type="Texture" id=19]
+[ext_resource path="res://assets/interface_cables_on_0.png" type="Texture" id=20]
+[ext_resource path="res://assets/interface_cables_on_1.png" type="Texture" id=21]
+[ext_resource path="res://assets/interface_cables_on_2.png" type="Texture" id=22]
+[ext_resource path="res://assets/interface_cables_on_3.png" type="Texture" id=23]
+[ext_resource path="res://score/assets/ecran_score.png" type="Texture" id=24]
+[ext_resource path="res://assets/Pixeled.ttf" type="DynamicFontData" id=25]
+[ext_resource path="res://borne/Borne.tscn" type="PackedScene" id=26]
+[ext_resource path="res://conveyor/Conveyor.tscn" type="PackedScene" id=27]
+[ext_resource path="res://sas/assets/trappe_gauche_0.png" type="Texture" id=28]
+[ext_resource path="res://sas/assets/trappe_droite_0.png" type="Texture" id=29]
+[ext_resource path="res://sas/assets/trappe_socle.png" type="Texture" id=30]
+[ext_resource path="res://sas/assets/wwind.ogg" type="AudioStream" id=31]
+[ext_resource path="res://assets/emergency_alarm.ogg" type="AudioStream" id=32]
+[ext_resource path="res://player/Player.gd" type="Script" id=33]
+[ext_resource path="res://player/assets/human-idle1.png" type="Texture" id=34]
+[ext_resource path="res://player/assets/human-idle2.png" type="Texture" id=35]
+[ext_resource path="res://player/assets/human-jump1.png" type="Texture" id=36]
+[ext_resource path="res://player/assets/human-jump2.png" type="Texture" id=37]
+[ext_resource path="res://player/assets/human-jump3.png" type="Texture" id=38]
+[ext_resource path="res://player/assets/human-walk1.png" type="Texture" id=39]
+[ext_resource path="res://player/assets/human-walk2.png" type="Texture" id=40]
+[ext_resource path="res://player/assets/human-walk3.png" type="Texture" id=41]
+[ext_resource path="res://player/assets/human-walk4.png" type="Texture" id=42]
+[ext_resource path="res://player/assets/human-walk5.png" type="Texture" id=43]
+[ext_resource path="res://player/assets/human-walk6.png" type="Texture" id=44]
+[ext_resource path="res://player/assets/human-walk7.png" type="Texture" id=45]
+[ext_resource path="res://player/assets/human-walk8.png" type="Texture" id=46]
+[ext_resource path="res://waste/assets/plaque_texture_05.png" type="Texture" id=47]
+[ext_resource path="res://assets/receptacle.png" type="Texture" id=48]
+[ext_resource path="res://sas/Area2D.gd" type="Script" id=49]
+[ext_resource path="res://light/light.png" type="Texture" id=50]
 
 [sub_resource type="Animation" id=1]
 
@@ -162,7 +167,7 @@ tracks/3/keys = {
 "values": [ -80.0, 0.0 ]
 }
 
-[sub_resource type="SpriteFrames" id=22]
+[sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
@@ -181,36 +186,36 @@ animations = [ {
 "speed": 16.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 64 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 528, 16 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 208 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=8]
 
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "default",
 "speed": 30.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
 extents = Vector2( 56, 8 )
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=10]
 
 render_priority = 0
 trail_divisor = 1
@@ -250,6 +255,19 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Damping", "Emission Shape", "Orbit Velocity", "Scale" ]
 
+[sub_resource type="DynamicFont" id=11]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 25 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=12]
+
+custom_solver_bias = 0.0
+extents = Vector2( 64, 5 )
+
 [sub_resource type="RectangleShape2D" id=13]
 
 custom_solver_bias = 0.0
@@ -258,38 +276,33 @@ extents = Vector2( 64, 5 )
 [sub_resource type="RectangleShape2D" id=14]
 
 custom_solver_bias = 0.0
-extents = Vector2( 64, 5 )
-
-[sub_resource type="RectangleShape2D" id=15]
-
-custom_solver_bias = 0.0
 extents = Vector2( 16, 36 )
 
-[sub_resource type="SpriteFrames" id=16]
+[sub_resource type="SpriteFrames" id=15]
 
 animations = [ {
-"frames": [ ExtResource( 31 ), ExtResource( 32 ) ],
+"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
 "loop": true,
 "name": "idle",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
+"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ],
 "loop": false,
 "name": "jump",
 "speed": 16.0
 }, {
-"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ) ],
+"frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
 "loop": true,
 "name": "walk",
 "speed": 12.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=16]
 
 custom_solver_bias = 0.0
 extents = Vector2( 24, 40 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=17]
 
 render_priority = 0
 trail_divisor = 1
@@ -328,7 +341,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Gravity" ]
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=18]
 
 render_priority = 0
 trail_divisor = 1
@@ -368,12 +381,12 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle" ]
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=19]
 
 custom_solver_bias = 0.0
 extents = Vector2( 16, 48 )
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=20]
 
 custom_solver_bias = 0.0
 extents = Vector2( 126, 16 )
@@ -383,16 +396,18 @@ extents = Vector2( 126, 16 )
 custom_solver_bias = 0.0
 extents = Vector2( 80, 16 )
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=22]
 
 custom_solver_bias = 0.0
 extents = Vector2( 288, 32 )
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="Sounds" type="Node2D" parent="." index="0"]
+
+editor/display_folded = true
 
 [node name="Background" type="AudioStreamPlayer" parent="Sounds" index="0"]
 
@@ -417,6 +432,7 @@ blend_times = [  ]
 
 [node name="SasButton" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 896, 624 )
 _sections_unfolded = [ "Transform" ]
 
@@ -437,7 +453,7 @@ invert_border = 100.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SasButton" index="1"]
 
-frames = SubResource( 22 )
+frames = SubResource( 4 )
 animation = "default"
 playing = true
 
@@ -457,7 +473,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SasButton/Detector" index="0"]
 
 position = Vector2( 0, 16 )
-shape = SubResource( 12 )
+shape = SubResource( 5 )
 
 [node name="Ground" type="StaticBody2D" parent="." index="3"]
 
@@ -490,29 +506,69 @@ invert_border = 100.0
 [node name="GroundCollision" type="CollisionShape2D" parent="Ground" index="1"]
 
 position = Vector2( 736, 16 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="WallRightCollision" type="CollisionShape2D" parent="Ground" index="2"]
 
 position = Vector2( 1264, -176 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="WallRightCollision2" type="CollisionShape2D" parent="Ground" index="3"]
 
 position = Vector2( 1536, -576 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="WallLeftCollision" type="CollisionShape2D" parent="Ground" index="4"]
 
 position = Vector2( -48, -176 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="WallLeftCollision2" type="CollisionShape2D" parent="Ground" index="5"]
 
 position = Vector2( -48, -592 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
-[node name="Shadow" parent="." index="4" instance=ExtResource( 9 )]
+[node name="sol_01" type="Sprite" parent="Ground" index="6"]
+
+position = Vector2( 277, 14 )
+texture = ExtResource( 9 )
+
+[node name="sol_02" type="Sprite" parent="Ground" index="7"]
+
+position = Vector2( 416, 14 )
+texture = ExtResource( 9 )
+
+[node name="sol_03" type="Sprite" parent="Ground" index="8"]
+
+position = Vector2( 555, 14 )
+texture = ExtResource( 9 )
+
+[node name="sol_04" type="Sprite" parent="Ground" index="9"]
+
+position = Vector2( 694, 14 )
+texture = ExtResource( 9 )
+
+[node name="sol_05" type="Sprite" parent="Ground" index="10"]
+
+position = Vector2( 832, 14 )
+texture = ExtResource( 9 )
+
+[node name="sol_06" type="Sprite" parent="Ground" index="11"]
+
+position = Vector2( 971, 14 )
+texture = ExtResource( 9 )
+
+[node name="sol_07" type="Sprite" parent="Ground" index="12"]
+
+position = Vector2( 1110, 14 )
+texture = ExtResource( 9 )
+
+[node name="sol_08" type="Sprite" parent="Ground" index="13"]
+
+position = Vector2( 1249, 14 )
+texture = ExtResource( 9 )
+
+[node name="Shadow" parent="." index="4" instance=ExtResource( 10 )]
 
 visible = false
 tile_data = PoolIntArray(  )
@@ -530,9 +586,9 @@ autostart = true
 editor/display_folded = true
 position = Vector2( 128, 384 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 6 )
+frames = SubResource( 8 )
 animation = "default"
-frame = 10
+frame = 11
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -552,7 +608,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/Area2D" index="0"]
 
 position = Vector2( 0, 16 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="Particles2D" type="Particles2D" parent="Laser" index="1"]
 
@@ -570,7 +626,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 8 )
+process_material = SubResource( 10 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -586,90 +642,122 @@ position = Vector2( 1104, 80 )
 
 position = Vector2( 48, -16 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 17 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="lamp2" type="Sprite" parent="Lamps" index="1"]
 
-position = Vector2( -176, -16 )
+position = Vector2( -144, -16 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 17 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="lamp3" type="Sprite" parent="Lamps" index="2"]
 
-position = Vector2( -384, -16 )
+position = Vector2( -352, -16 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 17 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="lamp4" type="Sprite" parent="Lamps" index="3"]
 
-position = Vector2( -608, -16 )
+position = Vector2( -544, -16 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 17 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Cables" type="Sprite" parent="." index="8"]
 
 editor/display_folded = true
 position = Vector2( 581, 367 )
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 
 [node name="CableSquare" type="Sprite" parent="Cables" index="0"]
 
 visible = false
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 
 [node name="CableCircle" type="Sprite" parent="Cables" index="1"]
 
 visible = false
-texture = ExtResource( 20 )
+texture = ExtResource( 21 )
 
 [node name="CableTriangle" type="Sprite" parent="Cables" index="2"]
 
 visible = false
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 
 [node name="CableHexagon" type="Sprite" parent="Cables" index="3"]
 
 visible = false
-texture = ExtResource( 22 )
+texture = ExtResource( 23 )
 
-[node name="Bornes" type="Node2D" parent="." index="9"]
+[node name="Score" type="Sprite" parent="." index="9"]
 
+editor/display_folded = true
+position = Vector2( 192, 128 )
+texture = ExtResource( 24 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Label" type="Label" parent="Score" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -112.0
+margin_top = -37.0
+margin_right = -10.0
+margin_bottom = 47.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 11 )
+text = "0 AL"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Bornes" type="Node2D" parent="." index="10"]
+
+editor/display_folded = true
 position = Vector2( 368, 656 )
 
-[node name="BorneSquare" parent="Bornes" index="0" instance=ExtResource( 23 )]
+[node name="BorneSquare" parent="Bornes" index="0" instance=ExtResource( 26 )]
 
 position = Vector2( 64, -32 )
 type = 2
 
-[node name="BorneCircle" parent="Bornes" index="1" instance=ExtResource( 23 )]
+[node name="BorneCircle" parent="Bornes" index="1" instance=ExtResource( 26 )]
 
 position = Vector2( 172, -32 )
 type = 0
 
-[node name="BorneTriangle" parent="Bornes" index="2" instance=ExtResource( 23 )]
+[node name="BorneTriangle" parent="Bornes" index="2" instance=ExtResource( 26 )]
 
 position = Vector2( 280, -32 )
 type = 1
 
-[node name="BorneHexagon" parent="Bornes" index="3" instance=ExtResource( 23 )]
+[node name="BorneHexagon" parent="Bornes" index="3" instance=ExtResource( 26 )]
 
 position = Vector2( 388, -32 )
 type = 3
 
-[node name="Garbage" type="Node2D" parent="." index="10"]
+[node name="Garbage" type="Node2D" parent="." index="11"]
 
 _sections_unfolded = [ "Transform" ]
 
-[node name="Conveyor" parent="." index="11" instance=ExtResource( 24 )]
+[node name="Conveyor" parent="." index="12" instance=ExtResource( 27 )]
 
 position = Vector2( 272, 272 )
 
-[node name="Sas" type="Node2D" parent="." index="12"]
+[node name="Sas" type="Node2D" parent="." index="13"]
 
+editor/display_folded = true
 position = Vector2( 112, 672 )
 __meta__ = {
 "_edit_group_": true
@@ -679,7 +767,7 @@ __meta__ = {
 
 editor/display_folded = true
 position = Vector2( 0, 7 )
-texture = ExtResource( 25 )
+texture = ExtResource( 28 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
@@ -698,13 +786,13 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sas/Left/StaticBody2D" index="0"]
 
 position = Vector2( -64, 14 )
-shape = SubResource( 13 )
+shape = SubResource( 12 )
 
 [node name="Right" type="Sprite" parent="Sas" index="1"]
 
 editor/display_folded = true
 position = Vector2( 0, 7 )
-texture = ExtResource( 26 )
+texture = ExtResource( 29 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
@@ -724,16 +812,16 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sas/Right/StaticBody2D" index="0"]
 
 position = Vector2( 64, 14 )
-shape = SubResource( 14 )
+shape = SubResource( 13 )
 
 [node name="Border" type="Sprite" parent="Sas" index="2"]
 
 position = Vector2( 0, 7 )
-texture = ExtResource( 27 )
+texture = ExtResource( 30 )
 
 [node name="Wind" type="AudioStreamPlayer" parent="Sas" index="3"]
 
-stream = ExtResource( 28 )
+stream = ExtResource( 31 )
 volume_db = -80.0
 pitch_scale = 1.0
 autoplay = true
@@ -742,14 +830,14 @@ bus = "Master"
 
 [node name="Alarm" type="AudioStreamPlayer" parent="Sas" index="4"]
 
-stream = ExtResource( 29 )
+stream = ExtResource( 32 )
 volume_db = -80.0
 pitch_scale = 1.0
 autoplay = true
 mix_target = 0
 bus = "Master"
 
-[node name="Player" type="KinematicBody2D" parent="." index="13"]
+[node name="Player" type="KinematicBody2D" parent="." index="14"]
 
 editor/display_folded = true
 position = Vector2( 944, 656 )
@@ -757,14 +845,14 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 30 )
+script = ExtResource( 33 )
 _sections_unfolded = [ "Collision" ]
 gravity = 20
 
 [node name="Collision" type="CollisionShape2D" parent="Player" index="0"]
 
 position = Vector2( 0, -4 )
-shape = SubResource( 15 )
+shape = SubResource( 14 )
 
 [node name="Pivot" type="Position2D" parent="Player" index="1"]
 
@@ -790,15 +878,16 @@ invert_border = 100.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player/Pivot" index="1"]
 
 position = Vector2( 0, -6 )
-frames = SubResource( 16 )
+frames = SubResource( 15 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="Hand" type="Sprite" parent="Player/Pivot" index="2"]
 
 position = Vector2( 16, -16 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 44 )
+texture = ExtResource( 47 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Detector" type="Area2D" parent="Player" index="2"]
@@ -817,13 +906,12 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Detector" index="0"]
 
 position = Vector2( 0, -4 )
-shape = SubResource( 17 )
+shape = SubResource( 16 )
 
-[node name="Receptacle" type="Sprite" parent="." index="14"]
+[node name="Receptacle" type="Sprite" parent="." index="15"]
 
-editor/display_folded = true
 position = Vector2( 1152, 624 )
-texture = ExtResource( 45 )
+texture = ExtResource( 48 )
 
 [node name="Particles2D" type="Particles2D" parent="Receptacle" index="0"]
 
@@ -841,7 +929,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 9 )
+process_material = SubResource( 17 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -864,7 +952,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 10 )
+process_material = SubResource( 18 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -886,10 +974,11 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Receptacle/StaticBody2D2" index="0"]
 
 position = Vector2( 64, 0 )
-shape = SubResource( 20 )
+shape = SubResource( 19 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Receptacle" index="3"]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -901,7 +990,7 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Receptacle/StaticBody2D" index="0"]
 
 position = Vector2( 24, 55 )
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 
 [node name="Area2D" type="Area2D" parent="Receptacle" index="4"]
 
@@ -914,6 +1003,7 @@ collision_layer = 4
 collision_mask = 0
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 49 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Receptacle/Area2D" index="0"]
@@ -921,7 +1011,7 @@ _sections_unfolded = [ "Collision" ]
 position = Vector2( -16, 32 )
 shape = SubResource( 21 )
 
-[node name="Trash" type="Node2D" parent="." index="15"]
+[node name="Trash" type="Node2D" parent="." index="16"]
 
 editor/display_folded = true
 position = Vector2( 128, 816 )
@@ -944,7 +1034,13 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trash/Area2D" index="0"]
 
-shape = SubResource( 18 )
+shape = SubResource( 22 )
+
+[node name="Light" type="Sprite" parent="." index="17"]
+
+position = Vector2( 1792, 136 )
+texture = ExtResource( 50 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="toggle" from="SasButton/Detector" to="." method="_on_SasButton_toggle"]
 

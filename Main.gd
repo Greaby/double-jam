@@ -1,5 +1,7 @@
 extends Node2D
 
+var score = 0
+var energy = 50
 
 var laser = null
 
@@ -16,6 +18,18 @@ const objects = [
 
 func _ready():
     randomize()
+    
+func _process(delta):
+    if(energy <= 10):
+        $Light.position.x = 816
+    elif(energy <= 20):
+        $Light.position.x = 1056
+    elif(energy <= 30):
+        $Light.position.x = 1232
+    elif(energy <= 40):
+        $Light.position.x = 1440
+    else:
+        $Light.position.x = 1792
 
 
 func _on_SpawnTimer_timeout():
@@ -25,6 +39,7 @@ func _on_SpawnTimer_timeout():
     instance.position = Vector2(1310, 220)
     $Garbage.add_child(instance)
     $SpawnTimer.wait_time = randi() % 5 + 3
+    energy -= 1
     
     
 
@@ -96,4 +111,10 @@ func _on_Trash_body_entered(body):
 
 
 func _on_Receptacle_body_entered(body):
+    score += 5
+    if(energy < 50):
+        energy += 2
+    $Conveyor/StaticBody2D2.constant_linear_velocity = Vector2(-100 - score, 0)
+    $Conveyor/StaticBody2D.constant_linear_velocity = Vector2(-100 - score, 0)
+    $Score/Label.text = str(score) + " AL"
     body.queue_free()
